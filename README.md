@@ -1,53 +1,110 @@
-# 💱 Conversor de Moedas em Java
+# 💱 Conversor de Moedas – Full Stack (Java + React)
 
-Um conversor de moedas de linha de comando que utiliza a [ExchangeRate-API](https://www.exchangerate-api.com/) para obter taxas de câmbio em tempo real. O projeto segue os princípios SOLID e é construído com Java puro (Java 11+), utilizando `HttpClient` e `Gson` para manipulação de JSON.
+Um conversor de moedas com frontend moderno em **React + TypeScript + Tailwind CSS** e backend em **Java puro**, que utiliza a [ExchangeRate-API](https://www.exchangerate-api.com/) para fornecer taxas de câmbio em tempo real.
+
+Este projeto evoluiu de uma aplicação de linha de comando para uma aplicação **full-stack** com interface web responsiva e APIs RESTful, mantendo os princípios de **código limpo e SOLID**.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- Conversão em tempo real entre diferentes moedas.
-- 6 opções pré-definidas no menu:
-  - USD ➡ EUR
-  - EUR ➡ BRL
-  - BRL ➡ USD
-  - GBP ➡ JPY
-  - CAD ➡ USD
-  - AUD ➡ BRL
-- Consumo da **ExchangeRate-API** com tratamento de erros.
-- Interface via **console**.
-- Código estruturado com princípios **SOLID** para alta manutenibilidade.
+### 🔙 Backend (Java)
+- API RESTful para conversão de moedas e listagem de moedas disponíveis.
+- Integração com a ExchangeRate-API.
+- Estrutura modular com princípios **SOLID**.
+- Tratamento de erros e falhas de rede com mensagens apropriadas.
+
+### 💻 Frontend (React)
+- Interface amigável e responsiva.
+- Conversão em tempo real entre moedas selecionadas.
+- Dropdowns dinâmicos para escolha de moedas base e alvo.
+- Suporte a modo claro/escuro.
+- Animações suaves com **Framer Motion**.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
 
-- **Java 11+**
-- **HttpClient** (nativo a partir do Java 11)
-- **Gson** – biblioteca para manipulação de JSON
-- **ExchangeRate-API** – API gratuita para taxas de câmbio
+### Backend:
+- **Java 21+**
+- **HttpClient (Java nativo)**
+- **Gson** para JSON
+- **ExchangeRate-API**
+
+### Frontend:
+- **React + TypeScript**
+- **Tailwind CSS**
+- **Framer Motion**
+- **Axios**
+- **Vite**
 
 ---
 
 ## 📁 Estrutura do Projeto
-
 ```
-  CurrencyConverterApp/
-├── Main.java
-├── service/
-│ └── CurrencyConverter.java
-│ └── ExchangeRateService.java
-├── model/
-│ └── ExchangeRatesResponse.java
-├── util/
-│ └── ConsoleUI.java
+  currency-converter/
+  ├── backend/
+  │ ├── Main.java
+  │ ├── handlers/
+  │ │ └── ConversionHandler.java
+  │ │ └── AvailableCurrenciesHandler.java
+  │ ├── service/
+  │ │ └── ExchangeRateService.java
+  │ └── model/
+  │ └── ExchangeRatesResponse.java
+  │
+  ├── frontend/
+  │ ├── src/
+  │ │ ├── App.tsx
+  │ │ ├── main.tsx
+  │ │ └── components/
+  │ │ └── ThemeToggle.tsx
+  │ ├── index.css
+  │ └── tailwind.config.js
 ```
 
-## ✅ Princípios SOLID Aplicados
-| Princípio | Implementação                                                                      |
-| --------- | ---------------------------------------------------------------------------------- |
-| SRP       | Cada classe tem uma única responsabilidade (ex: UI, serviço, lógica de conversão). |
-| OCP       | Fácil de estender com novos tipos de conversão sem alterar a lógica existente.     |
-| LSP       | Não há violações; dependências são seguras.                                        |
-| ISP       | Nenhuma classe depende de métodos que não usa.                                     |
-| DIP       | `CurrencyConverter` depende da abstração `ExchangeRateService`.                    |
+---
+
+## ▶️ Como Executar
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/seu-usuario/currency-converter.git
+cd currency-converter
+```
+
+### 2. Executar o Backend (Java)
+bash
+Copiar
+Editar
+cd backend
+javac Main.java
+java Main
+O backend estará disponível em: http://localhost:8080
+
+### 3. Executar o Frontend (React)
+bash
+Copiar
+Editar
+cd frontend
+yarn install
+yarn dev
+Acesse em: http://localhost:5173
+
+⚠️ Certifique-se de que o backend está rodando antes de iniciar o frontend.
+
+## ✅ Princípios SOLID Aplicados (Backend)
+
+| Princípio | Implementação                                                                  |
+| --------- | ------------------------------------------------------------------------------ |
+| **SRP**   | Cada classe possui responsabilidade única (UI, serviço, modelo, handler).      |
+| **OCP**   | Novas funcionalidades podem ser adicionadas sem alterar código existente.      |
+| **LSP**   | Classes substituíveis por suas abstrações sem efeitos colaterais.              |
+| **ISP**   | Interfaces e classes focadas apenas no que precisam utilizar.                  |
+| **DIP**   | Módulos de alto nível dependem de abstrações, não de implementações concretas. |
+
+## 🌐 Endpoints Disponíveis
+- `GET /currencies – Lista todas as moedas disponíveis.`
+
+- `GET /rate?base=BRL&target=USD – Retorna a taxa de câmbio entre as moedas informadas.`
