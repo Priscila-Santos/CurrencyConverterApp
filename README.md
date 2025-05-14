@@ -65,6 +65,13 @@ Este projeto evoluiu de uma aplicação de linha de comando para uma aplicação
 
 ---
 
+## View da Aplicação
+
+![Front-End do Conversor de Moedas](assets/view.png)
+
+## Gif Da Aplicação
+![Front-End do Conversor de Moedas](assets/view.gif)
+
 ## ▶️ Como Executar
 
 ### 1. Clonar o repositório
@@ -75,23 +82,23 @@ cd currency-converter
 ```
 
 ### 2. Executar o Backend (Java)
-bash
-Copiar
-Editar
-cd backend
+```bash
+
+cd pasta_do_projeto
 javac Main.java
 java Main
+ou
+clicar  run em CurrencyServe
 O backend estará disponível em: http://localhost:8080
-
+```
 ### 3. Executar o Frontend (React)
-bash
-Copiar
-Editar
-cd frontend
-yarn install
-yarn dev
-Acesse em: http://localhost:5173
+```bash
 
+cd frontend
+yarn install ou npm install
+yarn dev ou npm run dev
+Acesse em: http://localhost:5173
+```
 ⚠️ Certifique-se de que o backend está rodando antes de iniciar o frontend.
 
 ## ✅ Princípios SOLID Aplicados (Backend)
