@@ -11,7 +11,7 @@ Este projeto evoluiu de uma aplicação de linha de comando para uma aplicação
 O código do frontend agora está disponível separadamente em:  
 👉 https://github.com/Priscila-Santos/CurrencyConverterAppFrontEnd
 
-
+ " "
 ## 🚀 Funcionalidades
 
 ### 🔙 Backend (Java)
